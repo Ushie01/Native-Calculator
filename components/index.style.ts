@@ -3,23 +3,35 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'flex-end',
 		width: '100%',
 		flexDirection: 'row',
-        flexWrap: 'wrap',
-        marginTop: 50
+		flexWrap: 'wrap',
+		marginTop: 90,
+		margin: 'auto',
+		padding: 14,
+		backgroundColor: '#212733'
 	},
 	containerItem: {
+		justifyContent: 'center',
 		alignItems: 'center',
-		width: '25%',
-		height: '20%',
-		borderColor: 'gray',
-		borderWidth: 0.5,
+		width: '23%',
+		height: '18%',
+		borderRadius: 30,
+		backgroundColor: '#323843',
+        margin: '1%',
+	},
+	containerItemAC: {
+		backgroundColor: 'darkgreen'
+	},
+	containerItemEqual: {
+		backgroundColor: '#002351'
+	},
+	containerItemSign: {
+		backgroundColor: '#012'
 	},
 	value: {
-		fontSize: 25,
-		marginTop: 30,
-		fontWeight: '300',
+		fontSize: 30,
+		color: 'white'
 	},
 	screen: {
 		height: 50,

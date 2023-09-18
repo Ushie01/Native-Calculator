@@ -18,7 +18,7 @@ export default function Index() {
 			} catch (error) {
 				setResult(undefined);
 			}
-		} else if (value === 'C') {
+		} else if (value === 'AC') {
 			setInputValue('');
 			setResult(undefined);
 		} else {
@@ -26,11 +26,11 @@ export default function Index() {
 		}
 	};
 
-	const handleTextInputFocus = () => {
-		if (textInputRef.current) {
-			textInputRef.current.blur();
-		}
-	};
+	// const handleTextInputFocus = () => {
+	// 	if (textInputRef.current) {
+	// 		textInputRef.current.blur();
+	// 	}
+	// };
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -49,7 +49,7 @@ export default function Index() {
 					onChangeText={(text) => setInputValue(text)}
 					keyboardType='numeric'
 					placeholder='Enter expression'
-					onFocus={handleTextInputFocus}
+					// onFocus={handleTextInputFocus}
 				/>
 				<View style={styles.resultContainer}>
 					{result !== undefined && (
@@ -58,11 +58,16 @@ export default function Index() {
 				</View>
 			</View>
 
-
 			<View style={styles.container}>
 				{data.map((d, val) => (
 					<TouchableOpacity
-						style={styles.containerItem}
+						style={[
+							styles.containerItem,
+							d === 'AC' && styles.containerItemAC,
+							d === '=' && styles.containerItemEqual,
+							['( )', '%', '+', '×', '-', '÷'].includes(d) &&
+								styles.containerItemSign, // Use Array.includes()
+						]}
 						onPress={() => handleButtonClick(d)}
 						key={val}>
 						<Text style={styles.value}>{d}</Text>
